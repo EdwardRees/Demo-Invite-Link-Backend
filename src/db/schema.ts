@@ -23,3 +23,10 @@ export const belongingTable = sqliteTable("belonging_table", {
   user_id: int().notNull().references(() => userTable.id)
 })
 
+export const chatsTable = sqliteTable("chats_table", {
+  id: int('id').primaryKey(),
+  groupId: int('group_id').notNull().references(() => groupsTable.id),
+  userId: int('user_id').notNull().references(() => userTable.id),
+  text: text('text').notNull(),
+  createdAt: int('created_at', { mode: 'timestamp' }).notNull(),
+});
