@@ -1,4 +1,5 @@
 import { Elysia } from "elysia";
+import { cors } from "@elysiajs/cors";
 import 'dotenv/config';
 import { auth_routes, user_routes, group_routes, invite_routes, belonging_routes, chat_routes } from './routes';
 import { db } from './util/db.ts';
@@ -6,6 +7,14 @@ import { db } from './util/db.ts';
 // const db = drizzle(process.env.DB_FILE_NAME!);
 
 const app = new Elysia()
+  .use(
+    cors({
+      origin: 'http://localhost:5173',
+      credentials: true,
+      methods: ['GET', 'POST', 'OPTIONS'],
+      allowedHeaders: ['Content-Type', 'x-access-token']
+    })
+  )
   .get("/", () => "Hello Elysia")
   .get("/health", () => "Healthy!")
   .group("/users", (app) => user_routes(app))
