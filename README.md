@@ -1,15 +1,26 @@
-# Elysia with Bun runtime
+# Demo with Invite Link
 
-## Getting Started
-To get started with this template, simply paste this command into your terminal:
-```bash
-bun create elysia ./elysia-example
-```
+A quick demo with Elysia and SQLite for invitation links
 
-## Development
-To start the development server run:
-```bash
-bun run dev
-```
+## Setup
 
-Open http://localhost:3000/ with your browser to see the result.
+After cloning, run `bun i` to install dependencies
+
+Rename `.env.example` to `.env` and update with your own information for variables
+
+`bunx drizzle-kit migrate` to apply migrations
+
+## To run
+
+`bun dev`
+
+## Tech
+
+- TypeScript
+- Elysia
+- Bun
+- SQLite
+- Drizzle ORM
+- bcrypt
+- jsonwebtoken
+
