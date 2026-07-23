@@ -44,3 +44,7 @@ package-lock.json
 .env
 
 *.db
+
+.claude
+docs
+superpowers
