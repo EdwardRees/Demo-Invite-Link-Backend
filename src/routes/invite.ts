@@ -55,7 +55,14 @@ const invite_routes = (app: Elysia) => app
   }
 
 
-  const belonging_check = await db.select().from(belongingTable).where(and(eq(belongingTable.group_id, group_id), eq(belongingTable.user_id, target_user_id)));
+  const belonging_check = await db.select().from(belongingTable)
+  .where(
+    and(
+      eq(belongingTable.group_id, group_id), 
+      eq(belongingTable.user_id, target_user_id)
+    )
+  );
+
   if(belonging_check.length > 0){
     return status(409, "Conflict: User already belongs to group!")
   }
